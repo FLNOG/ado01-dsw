@@ -1,5 +1,7 @@
 package br.com.carstore.servlet;
 
+import br.com.carstore.model.Carro;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,13 +16,12 @@ public class CreateCarServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String carName = request.getParameter("car-name");
         String carColor = request.getParameter("car-color");
-        System.out.println(carName + " " + carColor);
+        System.out.println("Carro: " + carName + " Cor: " + carColor);
 
-        request.getRequestDispatcher("index.html").forward(request, response);
-    }
+        Carro newCar = new Carro(carName, carColor);
+        System.out.println(newCar);
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
+        request.setAttribute("newCar", newCar);
+        request.getRequestDispatcher("resposta.jsp").forward(request, response);
     }
 }
