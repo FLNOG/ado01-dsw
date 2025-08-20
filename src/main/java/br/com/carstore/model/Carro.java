@@ -9,14 +9,6 @@ public class Carro {
         this.color = color;
     }
 
-    public void setName(String name){
-        this.name = name;
-    }
-
-    public void setColor(String color){
-        this.color=color;
-    }
-
     public String getName(){
         return name;
     }
@@ -25,11 +17,4 @@ public class Carro {
         return color;
     }
 
-    @Override
-    public String toString() {
-        return "car: {" +
-                "name='" + '"' + name + '"' + '\'' +
-                ", color='" + '"' + color + '"' + '\'' +
-                '}';
-    }
 }
